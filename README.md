@@ -58,14 +58,96 @@ Update these files periodically as reflectors come and go.
 
 ## Radio Setup
 
-On the Kenwood TH-D75:
+### Step 1: Enable DV Gateway Mode
 
-1. Enter Menu 650 and set it to "Reflector TERM Mode" (this enables DV Gateway Mode)
-2. Enter Menu 985 and enable Bluetooth
-3. Pair the radio with your computer through your operating system's Bluetooth settings
-4. Note the radio's Bluetooth MAC address (shown during pairing, e.g., `28:3C:90:77:11:E0`)
+On the TH-D75, press MENU and navigate to:
 
-The radio's RF transmitter is disabled in Gateway Mode. All voice goes through Bluetooth to the internet.
+- Menu 650 (DV GW): Set to "Reflector TERM Mode"
+
+This puts the radio in Gateway Mode where it communicates via Bluetooth using the MMDVM serial protocol instead of transmitting over RF.
+
+### Step 2: Enable Bluetooth on the Radio
+
+- Menu 985 (Bluetooth): Set to ON
+
+The radio will become discoverable for pairing.
+
+### Step 3: Pair the Radio
+
+#### macOS
+
+1. Open System Settings (or System Preferences) and go to Bluetooth
+2. The radio appears as "TH-D75" in the device list
+3. Click "Connect" or "Pair"
+4. Accept the pairing on both the radio and the computer
+5. Once paired, note the MAC address — on macOS you can find it by Option-clicking the Bluetooth icon in the menu bar, or by running this command in Terminal:
+
+```bash
+system_profiler SPBluetoothDataType | grep -A 5 "TH-D75"
+```
+
+Look for the "Address" field (e.g., `28:3C:90:77:11:E0`).
+
+#### Linux
+
+1. Make sure the Bluetooth service is running:
+
+```bash
+sudo systemctl start bluetooth
+```
+
+2. Use `bluetoothctl` to scan, pair, and trust the radio:
+
+```bash
+bluetoothctl
+[bluetooth]# power on
+[bluetooth]# scan on
+```
+
+3. Wait for the radio to appear (look for "TH-D75"), then pair and trust it:
+
+```bash
+[bluetooth]# pair AA:BB:CC:DD:EE:FF
+[bluetooth]# trust AA:BB:CC:DD:EE:FF
+[bluetooth]# quit
+```
+
+Replace `AA:BB:CC:DD:EE:FF` with the address shown during scanning. This is the Bluetooth MAC address you will use with d75link.
+
+#### Raspberry Pi
+
+Same as Linux above. If Bluetooth is not working, ensure the Bluetooth firmware is installed:
+
+```bash
+sudo apt install bluetooth bluez
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
+```
+
+Then use `bluetoothctl` as described above.
+
+### Step 4: Find the Bluetooth MAC Address
+
+If you already paired but don't remember the address:
+
+**macOS:**
+```bash
+system_profiler SPBluetoothDataType | grep -A 5 "TH-D75"
+```
+
+**Linux / Raspberry Pi:**
+```bash
+bluetoothctl devices | grep TH-D75
+```
+
+The output shows the MAC address in `AA:BB:CC:DD:EE:FF` format. This is what you pass to d75link with the `--address` flag.
+
+### Notes
+
+- The radio's RF transmitter is disabled in Gateway Mode. All voice goes through Bluetooth to the internet.
+- The radio must be in DV Gateway Mode (Menu 650) before connecting. If you pair while in normal mode, the Bluetooth connection will succeed but d75link will not receive MMDVM data.
+- On macOS, the first Bluetooth connection after the radio powers on sometimes fails. d75link retries automatically with exponential backoff.
+- The TH-D75 uses RFCOMM channel 2 for the data connection. d75link handles this automatically.
 
 ## Quick Start
 
