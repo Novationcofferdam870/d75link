@@ -316,4 +316,4 @@ Ensure your terminal supports UTF-8 and 256 colors. The interface requires a min
 
 ## Support
 
-For support, bug reports, or feature requests, contact VE4ELB.
+For support, bug reports, or feature requests, contact VE4ELB at ve4elb@gmail.com.
