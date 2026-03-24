@@ -1,8 +1,23 @@
-# D75Link
+<p align="center">
+  <img src="docs/screenshot.png" alt="D75Link TUI" width="700">
+</p>
 
-A D-STAR reflector client for the Kenwood TH-D75 radio. Connects via Bluetooth to the radio in DV Gateway Mode and bridges voice to D-STAR reflectors (REF, XRF, DCS) over the internet.
+<h1 align="center">D75Link</h1>
 
-The radio handles all audio encoding and decoding with its built-in AMBE chip. d75link bridges the radio's MMDVM serial protocol over Bluetooth to reflector UDP packets, with a retro command center terminal interface.
+<p align="center">
+  A D-STAR reflector client for the Kenwood TH-D75 radio
+</p>
+
+<p align="center">
+  <a href="https://github.com/jflozanor/d75link/releases/latest"><img src="https://img.shields.io/github/v/release/jflozanor/d75link?style=flat-square&color=brightgreen" alt="Release"></a>
+  <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Raspberry%20Pi-blue?style=flat-square" alt="Platforms">
+  <img src="https://img.shields.io/badge/license-proprietary-red?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/radio-Kenwood%20TH--D75-orange?style=flat-square" alt="Radio">
+</p>
+
+---
+
+D75Link connects via Bluetooth to the Kenwood TH-D75 in DV Gateway Mode and bridges voice to D-STAR reflectors (REF, XRF, DCS) over the internet. The radio handles all audio encoding and decoding with its built-in AMBE chip. D75Link bridges the radio's MMDVM serial protocol over Bluetooth to reflector UDP packets, with a retro command center terminal interface.
 
 Copyright (c) 2026 Fabian Lozano, VE4ELB. All rights reserved.
 
@@ -44,7 +59,7 @@ sudo dnf install bluez-libs-devel
 
 ## Setting Up Host Files
 
-d75link needs D-STAR host files to resolve reflector names to IP addresses. Download them from Pi-Star:
+D75Link needs D-STAR host files to resolve reflector names to IP addresses. Download them from Pi-Star:
 
 ```bash
 mkdir -p ~/.config/d75link/hosts
@@ -112,7 +127,7 @@ bluetoothctl
 [bluetooth]# quit
 ```
 
-Replace `AA:BB:CC:DD:EE:FF` with the address shown during scanning. This is the Bluetooth MAC address you will use with d75link.
+Replace `AA:BB:CC:DD:EE:FF` with the address shown during scanning. This is the Bluetooth MAC address you will use with D75Link.
 
 #### Raspberry Pi
 
@@ -140,14 +155,14 @@ system_profiler SPBluetoothDataType | grep -A 5 "TH-D75"
 bluetoothctl devices | grep TH-D75
 ```
 
-The output shows the MAC address in `AA:BB:CC:DD:EE:FF` format. This is what you pass to d75link with the `--address` flag.
+The output shows the MAC address in `AA:BB:CC:DD:EE:FF` format. This is what you pass to D75Link with the `--address` flag.
 
 ### Notes
 
 - The radio's RF transmitter is disabled in Gateway Mode. All voice goes through Bluetooth to the internet.
-- The radio must be in DV Gateway Mode (Menu 650) before connecting. If you pair while in normal mode, the Bluetooth connection will succeed but d75link will not receive MMDVM data.
-- On macOS, the first Bluetooth connection after the radio powers on sometimes fails. d75link retries automatically with exponential backoff.
-- The TH-D75 uses RFCOMM channel 2 for the data connection. d75link handles this automatically.
+- The radio must be in DV Gateway Mode (Menu 650) before connecting. If you pair while in normal mode, the Bluetooth connection will succeed but D75Link will not receive MMDVM data.
+- On macOS, the first Bluetooth connection after the radio powers on sometimes fails. D75Link retries automatically with exponential backoff.
+- The TH-D75 uses RFCOMM channel 2 for the data connection. D75Link handles this automatically.
 
 ## Quick Start
 
@@ -164,7 +179,7 @@ Replace `YOURCALL` with your amateur radio callsign and `AA:BB:CC:DD:EE:FF` with
 
 ## Terminal Interface
 
-d75link displays a retro command center interface with:
+D75Link displays a retro command center interface with:
 
 - Status bar showing your callsign, radio connection, reflector link status, QSO count, uptime, and clock
 - Large callsign display that shows the active station in block letters (green for incoming, red for your transmission)
@@ -243,7 +258,7 @@ Optional:
 
 ## Reflector Types
 
-d75link supports all three D-STAR reflector protocols. The correct protocol is selected automatically based on the reflector name:
+D75Link supports all three D-STAR reflector protocols. The correct protocol is selected automatically based on the reflector name:
 
 - REF reflectors (e.g., REF001) use the DPlus protocol on port 20001. Registration at https://regist.dstargateway.org is required to transmit.
 - XRF reflectors (e.g., XRF757) use the DExtra protocol on port 30001. No registration required.
@@ -266,7 +281,7 @@ XRF and DCS reflectors do not require registration.
 
 ## Running as a Service
 
-For unattended operation on Linux (e.g., on a Raspberry Pi), d75link can run as a systemd service. When standard input is not a terminal, the interface is disabled and the gateway runs in headless mode with log output to the system journal.
+For unattended operation on Linux (e.g., on a Raspberry Pi), D75Link can run as a systemd service. When standard input is not a terminal, the interface is disabled and the gateway runs in headless mode with log output to the system journal.
 
 Create a service file at `/etc/systemd/system/d75link.service`:
 
@@ -316,4 +331,4 @@ Ensure your terminal supports UTF-8 and 256 colors. The interface requires a min
 
 ## Support
 
-For support, bug reports, or feature requests, contact VE4ELB at ve4elb@gmail.com.
+For support, bug reports, or feature requests, open an [issue](https://github.com/jflozanor/d75link/issues) or contact VE4ELB at ve4elb@gmail.com.
