@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/jflozanor/d75link/releases/latest"><img src="https://img.shields.io/github/v/release/jflozanor/d75link?style=flat-square&color=brightgreen" alt="Release"></a>
   <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Raspberry%20Pi-blue?style=flat-square" alt="Platforms">
-  <img src="https://img.shields.io/badge/license-proprietary-red?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/license-GPL%20v2-blue?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/radio-Kenwood%20TH--D75-orange?style=flat-square" alt="Radio">
 </p>
 
@@ -19,7 +19,7 @@
 
 D75Link connects via Bluetooth to the Kenwood TH-D75 in DV Gateway Mode and bridges voice to D-STAR reflectors (REF, XRF, DCS) over the internet. The radio handles all audio encoding and decoding with its built-in AMBE chip. D75Link bridges the radio's MMDVM serial protocol over Bluetooth to reflector UDP packets, with a retro command center terminal interface.
 
-Copyright (c) 2026 Fabian Lozano, VE4ELB. All rights reserved.
+Copyright (C) 2026 Fabian Lozano, VE4ELB. Licensed under GPL v2.
 
 ## System Requirements
 
