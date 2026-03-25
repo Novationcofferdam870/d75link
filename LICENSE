@@ -1,25 +1,27 @@
-D75Link - Proprietary Software License
+D75Link - D-STAR Reflector Client for the Kenwood TH-D75
+Copyright (C) 2026 Fabian Lozano, VE4ELB
 
-Copyright (c) 2026 Fabian Lozano, VE4ELB. All rights reserved.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
-Permission is granted to use the compiled binary of this software for
-personal, non-commercial amateur radio use, subject to the following
-conditions:
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-1. You may not modify, reverse engineer, decompile, or disassemble the
-   software.
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-2. You may not redistribute, sublicense, sell, or otherwise transfer the
-   software to any third party without prior written permission from the
-   copyright holder.
+---
 
-3. The software is provided "as is", without warranty of any kind, express
-   or implied, including but not limited to the warranties of merchantability,
-   fitness for a particular purpose, and noninfringement. In no event shall
-   the author be liable for any claim, damages, or other liability arising
-   from the use of the software.
+Protocol behavior referenced from the following open-source projects:
 
-4. Use of this software requires a valid amateur radio license issued by
-   the appropriate authority in your jurisdiction.
-
-For licensing inquiries, contact ve4elb@gmail.com.
+- MMDVM / MMDVMHost by Jonathan Naylor, G4KLX (GPL v2)
+  https://github.com/g4klx/MMDVMHost
+- DStarRepeater / ircDDBGateway by Jonathan Naylor, G4KLX (GPL v2)
+  https://github.com/g4klx
+- DroidStar by Doug McLain, AD8DP (GPL v2)
+  https://github.com/nostar/DroidStar
