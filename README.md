@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/jflozanor/d75link/releases/latest"><img src="https://img.shields.io/github/v/release/jflozanor/d75link?style=flat-square&color=brightgreen" alt="Release"></a>
   <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Raspberry%20Pi-blue?style=flat-square" alt="Platforms">
-  <img src="https://img.shields.io/badge/license-GPL%20v2-blue?style=flat-square" alt="License">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL%20v2-blue?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/radio-Kenwood%20TH--D75-orange?style=flat-square" alt="Radio">
 </p>
 
@@ -19,7 +19,15 @@
 
 D75Link connects via Bluetooth to the Kenwood TH-D75 in DV Gateway Mode and bridges voice to D-STAR reflectors (REF, XRF, DCS) over the internet. The radio handles all audio encoding and decoding with its built-in AMBE chip. D75Link bridges the radio's MMDVM serial protocol over Bluetooth to reflector UDP packets, with a retro command center terminal interface.
 
-Copyright (C) 2026 Fabian Lozano, VE4ELB. Licensed under GPL v2.
+## Acknowledgments
+
+D75Link builds on the work of the open-source D-STAR community. Protocol behavior was learned from:
+
+- [MMDVM / MMDVMHost](https://github.com/g4klx/MMDVMHost) by Jonathan Naylor, G4KLX — the MMDVM serial protocol, DExtra, DCS, and DPlus reflector protocols
+- [ircDDBGateway](https://github.com/g4klx/ircDDBGateway) by Jonathan Naylor, G4KLX — D-STAR gateway and reflector networking
+- [DroidStar](https://github.com/nostar/DroidStar) by Doug McLain, AD8DP — TX voice framing reference
+
+Without their foundational work on open-source D-STAR infrastructure, this project would not be possible.
 
 ## System Requirements
 
@@ -56,6 +64,26 @@ sudo apt install libbluetooth-dev
 # Fedora / RHEL
 sudo dnf install bluez-libs-devel
 ```
+
+## Building from Source
+
+D75Link requires CMake 3.16+ and Google Test.
+
+```bash
+# macOS
+brew install cmake googletest
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j
+
+# Linux (Debian/Ubuntu)
+sudo apt install cmake g++ libbluetooth-dev libgtest-dev
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j
+```
+
+The binary is built as `d75link` in the build directory.
 
 ## Setting Up Host Files
 
@@ -328,6 +356,10 @@ Verify the reflector name is spelled correctly and the module letter is valid (A
 ### Terminal display is corrupted
 
 Ensure your terminal supports UTF-8 and 256 colors. The interface requires a minimum terminal size of 50 columns by 16 rows. Resize your terminal window if the display appears broken. On macOS, Terminal.app and iTerm2 both work well.
+
+## License
+
+D75Link is free software licensed under the [GNU General Public License v2](LICENSE).
 
 ## Support
 
