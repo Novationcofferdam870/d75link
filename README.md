@@ -187,6 +187,7 @@ The output shows the MAC address in `AA:BB:CC:DD:EE:FF` format. This is what you
 
 ### Notes
 
+- Make sure DV Gateway Mode is set to use Bluetooth, not USB. On the TH-D75, check Menu 650 — it should say "Reflector TERM Mode" and the connection method should be Bluetooth. If it is set to USB, D75Link will connect via Bluetooth but the radio will not send or receive MMDVM data.
 - The radio's RF transmitter is disabled in Gateway Mode. All voice goes through Bluetooth to the internet.
 - The radio must be in DV Gateway Mode (Menu 650) before connecting. If you pair while in normal mode, the Bluetooth connection will succeed but D75Link will not receive MMDVM data.
 - On macOS, the first Bluetooth connection after the radio powers on sometimes fails. D75Link retries automatically with exponential backoff.
